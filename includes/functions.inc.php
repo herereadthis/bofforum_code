@@ -677,7 +677,8 @@ function do_bbcode_size($action, $attributes, $content, $params, $node_object)
     if(isset($size[$attributes['default']])) return true;
     else return false;
    }
-  return '<span style="font-size:'.$size[$attributes['default']].';">'.$content.'</span>';
+  // return '<span style="font-size:'.$size[$attributes['default']].';">'.$content.'</span>';
+  return '<span class="content_copy_'.$size[$attributes['default']].'">'.$content.'</span>';
  }
 
 // processes BBCode links for e-mail notifications (plain text)
@@ -1233,11 +1234,11 @@ function smilies($string)
   while($data = mysql_fetch_array($result))
    {
     if($data['title']!='') $title = ' title="'.$data['title'].'"'; else $title='';
-    if($data['code_1']!='') $string = str_replace($data['code_1'], "<img src=\"images/smilies/".$data['file']."\" alt=\"".$data['code_1']."\"".$title." />", $string);
-    if($data['code_2']!='') $string = str_replace($data['code_2'], "<img src=\"images/smilies/".$data['file']."\" alt=\"".$data['code_2']."\"".$title." />", $string);
-    if($data['code_3']!='') $string = str_replace($data['code_3'], "<img src=\"images/smilies/".$data['file']."\" alt=\"".$data['code_3']."\"".$title." />", $string);
-    if($data['code_4']!='') $string = str_replace($data['code_4'], "<img src=\"images/smilies/".$data['file']."\" alt=\"".$data['code_4']."\"".$title." />", $string);
-    if($data['code_5']!='') $string = str_replace($data['code_5'], "<img src=\"images/smilies/".$data['file']."\" alt=\"".$data['code_5']."\"".$title." />", $string);
+    if($data['code_1']!='') $string = str_replace($data['code_1'], "<img class=\"emoji\" src=\"images/smilies/".$data['file']."\" alt=\"".$data['code_1']."\"".$title." />", $string);
+    if($data['code_2']!='') $string = str_replace($data['code_2'], "<img class=\"emoji\" src=\"images/smilies/".$data['file']."\" alt=\"".$data['code_2']."\"".$title." />", $string);
+    if($data['code_3']!='') $string = str_replace($data['code_3'], "<img class=\"emoji\" src=\"images/smilies/".$data['file']."\" alt=\"".$data['code_3']."\"".$title." />", $string);
+    if($data['code_4']!='') $string = str_replace($data['code_4'], "<img class=\"emoji\" src=\"images/smilies/".$data['file']."\" alt=\"".$data['code_4']."\"".$title." />", $string);
+    if($data['code_5']!='') $string = str_replace($data['code_5'], "<img class=\"emoji\" src=\"images/smilies/".$data['file']."\" alt=\"".$data['code_5']."\"".$title." />", $string);
    }
   mysql_free_result($result);
   return($string);

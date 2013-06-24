@@ -1,3 +1,7 @@
+
+
+
+
 {if $tag_cloud || $latest_postings || $admin || $mod}
 <div id="sidebar">
 <a href="index.php?toggle_sidebar=true"><img id="sidebartoggle" class="{if $usersettings.sidebar==0}show-sidebar{else}hide-sidebar{/if}" src="{$THEMES_DIR}/{$theme}/images/plain.png" title="{#toggle_sidebar#}" alt="[+/-]" width="9" height="9" /></a>
@@ -35,6 +39,9 @@
 </div>
 </div>
 {/if}
+
+
+<p>{include file="$theme/subtemplates/subnavigation_1.inc.tpl"}{if $thread_order==0} | <a class="order_me order-1" href="index.php?mode=index&amp;thread_order=1" title="{#order_link_title_1#}" rel="nofollow">{#order_link#}</a>{else}<a class="order_me order-2" href="index.php?mode=index&amp;thread_order=0" title="{#order_link_title_2#}" rel="nofollow">{#order_link#}</a>{/if}{if $usersettings.fold_threads==0} | <a class="order_me fold-1" href="index.php?fold_threads=true" title="{#fold_threads_linktitle#}">{#fold_threads#}</a>{else}<a class="order_me fold-2" href="index.php?fold_threads=true" title="{#expand_threads_linktitle#}">{#expand_threads#}</a>{/if}</p>
 
 {if $threads}
 {foreach from=$threads item=thread}

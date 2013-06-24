@@ -113,7 +113,7 @@ if($result_count > 0)
       if(isset($categories[$data['category']]) && $categories[$data['category']]!='') $data['category_name']=$categories[$data['category']];
 
       // convert formated time to a utf-8:
-      $data['formated_time'] = format_time($lang['time_format'],$data['timestamp']);
+      $data['formated_time'] = format_time($lang['time_format_mod'],$data['timestamp']);
 
       if($data['pid']==0)
        {
